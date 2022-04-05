@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Sample1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Business_Card">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Business" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seel_code" Type="nvarchar(max)" />
+          <Property Name="Genders" Type="nvarchar(max)" />
+          <Property Name="Dates" Type="date" />
+          <Property Name="Positions" Type="nvarchar(max)" />
+          <Property Name="Departments" Type="nvarchar(max)" />
+          <Property Name="Shirts" Type="nvarchar(max)" />
+          <Property Name="T_Shirts" Type="nvarchar(max)" />
+          <Property Name="Safety_Shoes" Type="nvarchar(max)" />
+          <Property Name="Medical_insurance_card" Type="nvarchar(max)" />
+          <Property Name="Business_card" Type="nvarchar(max)" />
+          <Property Name="Hijab" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Dates_samaya">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dates" Type="date" />
+        </EntityType>
+        <EntityType Name="Departments_samaya">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Department" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Genders_samaya">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Hijab/Cap">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hijab" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Medical_Insurance_Card">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Insurance" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Positions_samaya">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Position" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Safety_Shoes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Safety" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Shirts_samaya">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Shirt" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="T_shirt_samaya">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="T_Shirt" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="User2">
+          <Key>
+            <PropertyRef Name="seel_code" />
+          </Key>
+          <Property Name="seel_code" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="Sample1ModelStoreContainer">
+          <EntitySet Name="Business_Card" EntityType="Self.Business_Card" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dates_samaya" EntityType="Self.Dates_samaya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departments_samaya" EntityType="Self.Departments_samaya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genders_samaya" EntityType="Self.Genders_samaya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hijab/Cap" EntityType="Self.Hijab/Cap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Medical_Insurance_Card" EntityType="Self.Medical_Insurance_Card" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Positions_samaya" EntityType="Self.Positions_samaya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Safety_Shoes" EntityType="Self.Safety_Shoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shirts_samaya" EntityType="Self.Shirts_samaya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_shirt_samaya" EntityType="Self.T_shirt_samaya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User2" EntityType="Self.User2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Sample1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Business_Card">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Business" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seel_code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Genders" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Dates" Type="DateTime" Precision="0" />
+          <Property Name="Positions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Departments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Shirts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="T_Shirts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Safety_Shoes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Medical_insurance_card" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Business_card" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Hijab" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Dates_samaya">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dates" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Departments_samaya">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Department" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Genders_samaya">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gender" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Hijab_Cap">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hijab" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Medical_Insurance_Card">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Insurance" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Positions_samaya">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Position" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Safety_Shoes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Safety" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Shirts_samaya">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Shirt" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_shirt_samaya">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="T_Shirt" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User2">
+          <Key>
+            <PropertyRef Name="seel_code" />
+          </Key>
+          <Property Name="seel_code" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Sample1Entities26" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Business_Card" EntityType="Self.Business_Card" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Dates_samaya" EntityType="Self.Dates_samaya" />
+          <EntitySet Name="Departments_samaya" EntityType="Self.Departments_samaya" />
+          <EntitySet Name="Genders_samaya" EntityType="Self.Genders_samaya" />
+          <EntitySet Name="Hijab_Cap" EntityType="Self.Hijab_Cap" />
+          <EntitySet Name="Medical_Insurance_Card" EntityType="Self.Medical_Insurance_Card" />
+          <EntitySet Name="Positions_samaya" EntityType="Self.Positions_samaya" />
+          <EntitySet Name="Safety_Shoes" EntityType="Self.Safety_Shoes" />
+          <EntitySet Name="Shirts_samaya" EntityType="Self.Shirts_samaya" />
+          <EntitySet Name="T_shirt_samaya" EntityType="Self.T_shirt_samaya" />
+          <EntitySet Name="User2" EntityType="Self.User2" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Sample1ModelStoreContainer" CdmEntityContainer="Sample1Entities26">
+          <EntitySetMapping Name="Business_Card">
+            <EntityTypeMapping TypeName="Sample1Model.Business_Card">
+              <MappingFragment StoreEntitySet="Business_Card">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Business" ColumnName="Business" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="Sample1Model.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Seel_code" ColumnName="Seel_code" />
+                <ScalarProperty Name="Genders" ColumnName="Genders" />
+                <ScalarProperty Name="Dates" ColumnName="Dates" />
+                <ScalarProperty Name="Positions" ColumnName="Positions" />
+                <ScalarProperty Name="Departments" ColumnName="Departments" />
+                <ScalarProperty Name="Shirts" ColumnName="Shirts" />
+                <ScalarProperty Name="T_Shirts" ColumnName="T_Shirts" />
+                <ScalarProperty Name="Safety_Shoes" ColumnName="Safety_Shoes" />
+                <ScalarProperty Name="Medical_insurance_card" ColumnName="Medical_insurance_card" />
+                <ScalarProperty Name="Business_card" ColumnName="Business_card" />
+                <ScalarProperty Name="Hijab" ColumnName="Hijab" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dates_samaya">
+            <EntityTypeMapping TypeName="Sample1Model.Dates_samaya">
+              <MappingFragment StoreEntitySet="Dates_samaya">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Dates" ColumnName="Dates" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments_samaya">
+            <EntityTypeMapping TypeName="Sample1Model.Departments_samaya">
+              <MappingFragment StoreEntitySet="Departments_samaya">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders_samaya">
+            <EntityTypeMapping TypeName="Sample1Model.Genders_samaya">
+              <MappingFragment StoreEntitySet="Genders_samaya">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hijab_Cap">
+            <EntityTypeMapping TypeName="Sample1Model.Hijab_Cap">
+              <MappingFragment StoreEntitySet="Hijab/Cap">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Hijab" ColumnName="Hijab" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medical_Insurance_Card">
+            <EntityTypeMapping TypeName="Sample1Model.Medical_Insurance_Card">
+              <MappingFragment StoreEntitySet="Medical_Insurance_Card">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Insurance" ColumnName="Insurance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions_samaya">
+            <EntityTypeMapping TypeName="Sample1Model.Positions_samaya">
+              <MappingFragment StoreEntitySet="Positions_samaya">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Safety_Shoes">
+            <EntityTypeMapping TypeName="Sample1Model.Safety_Shoes">
+              <MappingFragment StoreEntitySet="Safety_Shoes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Safety" ColumnName="Safety" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shirts_samaya">
+            <EntityTypeMapping TypeName="Sample1Model.Shirts_samaya">
+              <MappingFragment StoreEntitySet="Shirts_samaya">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Shirt" ColumnName="Shirt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_shirt_samaya">
+            <EntityTypeMapping TypeName="Sample1Model.T_shirt_samaya">
+              <MappingFragment StoreEntitySet="T_shirt_samaya">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="T_Shirt" ColumnName="T_Shirt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User2">
+            <EntityTypeMapping TypeName="Sample1Model.User2">
+              <MappingFragment StoreEntitySet="User2">
+                <ScalarProperty Name="seel_code" ColumnName="seel_code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Sample1Model.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

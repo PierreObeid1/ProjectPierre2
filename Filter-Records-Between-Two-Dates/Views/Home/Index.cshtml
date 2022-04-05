@@ -1,0 +1,376 @@
+﻿@model Filter_Records_Between_Two_Dates.Models.ViewModel_Registration
+@{
+    ViewBag.Title = "";
+}
+
+<img src="~/Images/samaya-logo1.png" />
+
+    <script>
+        function fill() {
+            input = document.getElementById('Entervalue').value;
+            document.getElementById('Text3').value = input;
+        }
+    </script>
+
+
+    <table>
+
+        <tr>
+            <td>@Html.TextBox("Entervalue")</td>
+
+            <td><button type="submit" id="search" onclick="fill();">Search</button></td>
+
+        </tr>
+
+    </table>
+
+
+<div id="result"></div>
+
+
+@section scripts{
+    <script>
+        $("#search").click(function () {
+            $.ajax({
+                url: "@Url.Action("Search","Default")",
+                type:"POST",
+                data: { value: $("#Entervalue").val() },
+                success: function (data) {
+                    $("#result").html(data);
+                }
+            });
+        });
+
+    </script>
+}
+
+<body>
+    <div class="mt-5">
+        <h3 style="text-align: center; font-size: 15px; font-weight: bold;">
+            إقرار إستلام عهده شخصية
+        </h3>
+        <p dir="rtl" lang="ar" style="color:#000000; font-size:14px; text-align:justify;">
+            أقر بأنني استلمت من الشركة عهده شخصية لزوم إنجاز عملي، على أن يتم إستخدامها بصفه دا خلال أوقات العمل في خلال سنة من تاريخه وفي حالة عدم إلتزامي بإستخدامه بهذه الصفة أثناء العمل أوافق على تطبيق لوائح العمل الداخلية.
+            وفي حالة ترك العمل قبل مرور عام من تاريخ إستلام المهمات، يتم خصم قيمة المهمات بالنسبة المتبقي من العام بناءا على القيمة المذكورة أدناه.
+        </p>
+
+        @using (Html.BeginForm("index", "Home", FormMethod.Post))
+        {
+
+            <div>
+
+                <div class="items">
+                    <div style="padding:6px">
+                        &rarr;Seel_Code: @Html.TextBoxFor(x => x.Seel_code, new { @id = "Text3", placeholder = "Enter Customer Code" })
+
+                        &rarr;Received_Date: @Html.TextBoxFor(x => x.Dates, new { type = "date" })
+                    </div>
+                </div>
+                <div style="padding:6px">
+                    <h4>&#128699; Genders: </h4>  @for (int i = 0; i < Model.Genders_samaya.Count; i++)
+                    {
+
+                        <div data-name="check" class="inline" ; style="padding:5px">
+                            @Html.CheckBoxFor(x => Model.Genders_samaya[i].isChecked)
+                            @Model.Genders_samaya[i].Gender
+                            @Html.HiddenFor(x => Model.Genders_samaya[i].id)
+                            @Html.HiddenFor(x => Model.Genders_samaya[i].Gender)
+                        </div>
+
+                    }
+
+                </div>
+                <div style="padding:6px">
+                    <h4> &#128179; Business_card/كارت العمل: </h4> @for (int i = 0; i < Model.Business_card.Count; i++)
+                    {
+                        <div class="inline" ; style="padding:8px">
+                            @Html.CheckBoxFor(x => Model.Business_card[i].isChecked)
+                            @Model.Business_card[i].Business
+                            @Html.HiddenFor(x => Model.Business_card[i].id)
+                            @Html.HiddenFor(x => Model.Business_card[i].Business)
+                        </div>
+                    }
+                </div>
+                <div style="padding:6px">
+                    <h4>&#128179; Medical_Insurance_Card/كارت التأمين الطبي:</h4>  @for (int i = 0; i < Model.Medical_insurance_card.Count; i++)
+                    {
+                        <div class="inline" ; style="padding:8px">
+                            @Html.CheckBoxFor(x => Model.Medical_insurance_card[i].isChecked)
+                            @Model.Medical_insurance_card[i].Insurance
+                            @Html.HiddenFor(x => Model.Medical_insurance_card[i].id)
+                            @Html.HiddenFor(x => Model.Medical_insurance_card[i].Insurance)
+                        </div>
+                    }
+                </div>
+                <div style="padding:6px">
+                    <h4>&#128119; Positions: </h4> @for (int i = 0; i < Model.Positions_samaya.Count; i++)
+                    {<div class="inline" ; style="padding:8px">
+                            @Html.CheckBoxFor(x => Model.Positions_samaya[i].isChecked)
+                            @Model.Positions_samaya[i].Position
+                            @Html.HiddenFor(x => Model.Positions_samaya[i].id)
+                            @Html.HiddenFor(x => Model.Positions_samaya[i].Position)
+                        </div>
+                    }
+                </div>
+                <div style="padding:6px">
+                    <h4>&#127970; Departments/القسم: </h4>   @for (int i = 0; i < Model.Departments_samaya.Count; i++)
+                    {
+                        <div class="inline" ; style="padding:8px">
+                            @Html.CheckBoxFor(x => Model.Departments_samaya[i].isChecked)
+                            @Model.Departments_samaya[i].Department
+                            @Html.HiddenFor(x => Model.Departments_samaya[i].id)
+                            @Html.HiddenFor(x => Model.Departments_samaya[i].Department)
+
+                        </div>
+                    }
+                </div>
+                <div style="padding:6px">
+                    <h4>&#128085; Shirts: </h4>  @for (int i = 0; i < Model.Shirts_samaya.Count; i++)
+                    {
+                        <div class="inline" ; style="padding:8px">
+                            @Html.CheckBoxFor(x => Model.Shirts_samaya[i].isChecked)
+                            @Model.Shirts_samaya[i].Shirt
+                            @Html.HiddenFor(x => Model.Shirts_samaya[i].id)
+                            @Html.HiddenFor(x => Model.Shirts_samaya[i].Shirt)
+
+                        </div>
+                    }
+                </div>
+                <div style="padding:6px">
+                    <h4>&#128085; T_Shirt: </h4>  @for (int i = 0; i < Model.T_Shirt_Samaya.Count; i++)
+                    {
+                        <div class="inline" ; style="padding:8px">
+                            @Html.CheckBoxFor(x => Model.T_Shirt_Samaya[i].isChecked)
+                            @Model.T_Shirt_Samaya[i].T_Shirt
+                            @Html.HiddenFor(x => Model.T_Shirt_Samaya[i].id)
+                            @Html.HiddenFor(x => Model.T_Shirt_Samaya[i].T_Shirt)
+
+                        </div>
+                    }
+                </div>
+                <div style="padding:6px">
+                    <h4>&#129507; Hijab/Cap: </h4>  @for (int i = 0; i < Model.Hijab_Cap.Count; i++)
+                    {
+                        <div class="inline" ; style="padding:8px">
+                            @Html.CheckBoxFor(x => Model.Hijab_Cap[i].isChecked)
+                            @Model.Hijab_Cap[i].Hijab
+                            @Html.HiddenFor(x => Model.Hijab_Cap[i].id)
+                            @Html.HiddenFor(x => Model.Hijab_Cap[i].Hijab)
+                        </div>
+                    }
+                </div>
+                <div style="padding:6px">
+                    <h4>&#128095; Safety_Shoes: </h4>  @for (int i = 0; i < Model.Safety_Shoes.Count; i++)
+                    {
+                        <div class="inline" ; style="padding:5px">
+                            @Html.CheckBoxFor(x => Model.Safety_Shoes[i].isChecked, new { placeholder = "Enter Customer Code" })
+                            @Model.Safety_Shoes[i].Safety
+                            @Html.HiddenFor(x => Model.Safety_Shoes[i].id)
+                            @Html.HiddenFor(x => Model.Safety_Shoes[i].Safety)
+
+                        </div>
+                    }
+                </div>
+
+                <div>
+                    <p dir="rtl" lang="ar" style="color: #000000; font-size: 13px; font-weight: bold; ">
+                        &#8902; الإمضاء:
+                    </p>
+                    <p dir="rtl" lang="ar" style="color: #000000; font-size: 13px; font-weight: bold; ">
+                        &#8902; توقيع المدير المباشر:
+                    </p>
+                </div>
+
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+                <link href="StyleSheets/PageNameStyle.css" rel="stylesheet" type="text/css" />
+                <link href="StyleSheets/PageNamePrintStyle.css" rel="stylesheet" type="text/css" media="print" />
+
+                @{
+                    if (ViewBag.message != null)
+                    {
+                        @ViewBag.message
+                    }
+                }
+
+            </div>
+
+
+            <div id="options">
+                <div class="Buttons" style="text-align:right">
+                    @Html.ActionLink("Log Out", "Login", "Home1")
+                </div>
+                <input class="btn btn-info" type="submit" />
+              
+            </div>
+      
+            <script>
+                function printpage() {
+                    //Get the print button and put it into a variable
+                    var printButton1 = document.getElementById("options");
+                    var printbutton2 = document.getElementById("search");
+                    var printbutton3 = document.getElementById("Entervalue");
+                    var date = document.getElementById("Dates").value
+                    if (date.length == 0) {
+                        alert(" Dates Please make sure all fields are filled in correctly. ")
+                    }
+                    else {
+                        //Set the print button visibility to 'hidden'
+                        printButton1.style.visibility = 'hidden';
+                        printbutton2.style.visibility = 'hidden';
+                        printbutton3.style.visibility = 'hidden';
+                        //Print the page content
+                        window.print()
+                        printButton1.style.visibility = 'visible';
+                      
+                    }
+                }
+
+            </script>
+            <script>
+                function Submit() {
+                    alert("YOUR DATA ALREADY SUBMITTED ");
+                }
+
+            </script>
+
+
+        }
+    </div>
+</body>
+
+<style>
+    img {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+
+    .someHeader {
+        height: 50px;
+    }
+
+    #p {
+        display: none;
+        visibility: hidden;
+    }
+
+    #options {
+        align-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .printableArea {
+        display: inline;
+    }
+
+    .items {
+        display: inline;
+    }
+
+    .inline {
+        display: inline;
+    }
+
+    label {
+        display: inline-block;
+    }
+
+    h4 {
+        color: #4287f5;
+        text-decoration: underline;
+        font-size: 15px;
+    }
+
+
+    h2 {
+        color: #000000;
+        text-decoration: underline;
+        font-size: 20px;
+        line-height: 2;
+    }
+
+    h3 {
+        color: #000000;
+        text-decoration: underline;
+        font-size: 20px;
+    }
+
+    .Buttons {
+        text-align: center;
+    }
+</style>
+
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+
+
+
+</script>
+<style type="text/css">
+    #timeOut {
+        background-color: yellow;
+    }
+</style>
+<script type="text/javascript">
+
+    var IdealTimeOut = 30; //10 seconds
+    var idleSecondsTimer = null;
+    var idleSecondsCounter = 0;
+    document.onclick = function () { idleSecondsCounter = 0; };
+    document.onmousemove = function () { idleSecondsCounter = 0; };
+    document.onkeypress = function () { idleSecondsCounter = 0; };
+    idleSecondsTimer = window.setInterval(CheckIdleTime, 1000);
+
+
+
+    function CheckIdleTime() {
+        idleSecondsCounter++;
+        var oPanel = document.getElementById("timeOut");
+        if (oPanel) {
+            oPanel.innerHTML = (IdealTimeOut - idleSecondsCounter);
+        }
+        if (idleSecondsCounter >= IdealTimeOut) {
+            window.clearInterval(idleSecondsTimer);i
+            window.location = "https://localhost:44397/Home1/Login";
+        }
+    }
+</script>
+<script type='text/javascript'>
+    // Maps an event to the window closing event//
+    window.onbeforeunload = function (e) {
+        alert("The Window is closing!");
+    };
+</script>
+
+
+<body>
+    <form id="form1" runat="server">
+        <div hidden>
+            You Will Be Auto Logged Out In <span id="timeOut"></span> seconds.
+        </div>
+    </form>
+</body>
+<script>
+    var group_ = (el, callback) => {
+        el.forEach((checkbox) => {
+            callback(checkbox)
+        })
+    }
+    var group_el = document.querySelectorAll("*[data-name] > input")
+    group_(group_el, (item) => {
+        item.onclick = (e) => {
+            group_(group_el, (item) => {
+                item.checked = false;
+            })
+
+            e.target.checked = true;
+        }
+    })
+</script>
+
+

@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Filter_Records_Between_Two_Dates.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+<img src="~/Images/samaya-logo1.png" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<div class="center">
+    <p>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        {
+            <button class="btn btn-info">Add New Customer</button>
+        }
+    </p>
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).find('td:eq(0), td:eq(1)').text().replace(/\s+/g, ' ').toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });</script>
+<p>Enter Seel Code/Name:</p>
+<input class="form-group" id="myInput" type="text" placeholder="Search Seel_Code/Name..">
+<table class="table table-hover" id="myTable">
+
+    <tbody id="myTable">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <p class="thick">Seel Code:</p> @Html.DisplayFor(modelItem => item.Seel_code)
+                </td>         
+                <td>
+                    <p class="thick">Genders:</p> @Html.DisplayFor(modelItem => item.Genders)
+                </td>
+                <td>
+                    <p class="thick">Medical Card:</p>  @Html.DisplayFor(modelItem => item.Medical_insurance_card)
+                </td>
+                <td>
+                    <p class="thick">Business Card:</p>  @Html.DisplayFor(modelItem => item.Business_card)
+                </td>
+                <td>
+                    <p class="thick">Positions:</p> @Html.DisplayFor(modelItem => item.Positions)
+                </td>
+                <td>
+                    <p class="thick">Departments:</p> @Html.DisplayFor(modelItem => item.Departments)
+                </td>
+                <td>
+                    <p class="thick">Shirts:</p>  @Html.DisplayFor(modelItem => item.Shirts)
+                </td>
+                <td>
+                    <p class="thick">T_Shirts:</p> @Html.DisplayFor(modelItem => item.T_Shirts)
+                </td>
+                <td>
+                    <p class="thick">Hijab/Cap:</p> @Html.DisplayFor(modelItem => item.Hijab)
+                </td>
+                <td>
+                    <p class="thick">Safety Shoes:</p> @Html.DisplayFor(modelItem => item.Safety_Shoes)
+                </td>
+                <td>
+                    <p class="thick">Dates:</p> @Html.DisplayFor(modelItem => item.Dates)
+                </td>
+
+            </tr>
+
+        }
+    </tbody>
+
+</table>
+
+<div class="Buttons" style="text-align:right">
+
+    @Html.ActionLink("Log Out", "Login", "Home1")
+
+</div>
+<style>
+    p.thick {
+        font-weight: bold;
+    }
+    img {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    .center {
+        text-align: center;
+        position: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+</style>
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+
+</script>
